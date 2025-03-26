@@ -1,0 +1,24 @@
+.body{
+width: 100%;
+height: auto;
+display: flex;
+justify-content: center;
+
+}
+
+.container{
+    border-radius: 10px;
+    background-color: #ccc;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 250px;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+}
+
+button{
+    width: 100px;
+    margin: 20px 0 ;
+}
