@@ -1,6 +1,7 @@
 <div class="body">
   <form class="container" [formGroup]="uploadForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
-    <input type="file" (change)="onFileSelected($event)" formControlName="file" />
+    <p>Selecione um arquivo CSV:</p>
+    <input type="file" (change)="selecionarArquivo($event)" formControlName="file" />
     <button type="submit" [disabled]="!uploadForm.valid">Upload</button>
   </form>
 </div>

@@ -3,7 +3,7 @@ width: 100%;
 height: auto;
 display: flex;
 justify-content: center;
-
+ 
 }
 
 .container{
@@ -16,7 +16,7 @@ justify-content: center;
     display: flex;
     padding: 20px;
     justify-content: center;
-}
+ }
 
 button{
     width: 100px;
