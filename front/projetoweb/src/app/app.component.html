@@ -2,6 +2,21 @@
   <form class="container" [formGroup]="uploadForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
     <p>Selecione um arquivo CSV:</p>
     <input type="file" (change)="selecionarArquivo($event)" formControlName="file" />
+
+    <!-- Adicionar o card de escolha -->
+    <div class="form-group">
+      <label>Escolha o tipo de gravação:</label>
+      <div>
+        <input type="radio" id="gravarArquivoInteiro" formControlName="gravarTipo" value="inteiro" />
+        <label for="gravarArquivoInteiro">Gravar o arquivo inteiro</label>
+      </div>
+      <div>
+        <input type="radio" id="gravarColunas" formControlName="gravarTipo" value="colunas" />
+        <label for="gravarColunas">Gravar apenas as colunas</label>
+      </div>
+    </div>
+
+    <!-- Botão de envio -->
     <button type="submit" [disabled]="!uploadForm.valid">Upload</button>
   </form>
 </div>

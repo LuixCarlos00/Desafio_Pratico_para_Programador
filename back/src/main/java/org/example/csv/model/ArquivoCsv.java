@@ -3,14 +3,12 @@ package org.example.csv.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
-import java.util.Date;
+ import java.util.Date;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "arquivos_csv")
-@EqualsAndHashCode(of = "AdmCodigo")
 public class ArquivoCsv {
 
     @Id

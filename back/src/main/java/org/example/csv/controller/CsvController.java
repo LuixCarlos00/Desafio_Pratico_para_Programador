@@ -68,6 +68,7 @@ public class CsvController {
              return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of(//Erro inesperado ao processar arquivo
                     "erro", "Erro no processamento",
                     "mensagem", "Ocorreu um erro inesperado ao processar o arquivo"
+
             ));
         }
     }
