@@ -121,7 +121,7 @@ http://localhost:4200/
 Vídeo Tutorial
 Para um guia visual sobre como configurar e executar o projeto, assista ao vídeo disponível no link abaixo:
 
-Video: https://drive.google.com/file/d/1TC9w1byAChFU3cxuz9wNpdzC_ECeWyz4/view?usp=sharing
+Video: https://drive.google.com/file/d/1spxGcGqIp0kmpXibb2WlDcEP56R7OjjH/view?usp=sharing
 
 
 
