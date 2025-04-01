@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   private initializeForm(): void {
     this.uploadForm = new FormGroup({
       file: new FormControl(null, [Validators.required]),
-      gravarTipo: new FormControl('inteiro', [Validators.required]) // Adicionar o controle para o tipo de gravação
+      gravarTipo: new FormControl('inteiro', [Validators.required])
     });
   }
 
@@ -82,7 +82,7 @@ export class AppComponent implements OnInit {
 
     const formData = new FormData();
     formData.append('file', this.selectedFile, this.selectedFile.name);
-    formData.append('gravarTipo', this.uploadForm.value.gravarTipo); // Enviar o tipo de gravação
+    formData.append('gravarTipo', this.uploadForm.value.gravarTipo);
 
     const url = this.uploadForm.value.gravarTipo === 'inteiro'
       ? 'http://localhost:8080/arquivos/upload' : 'http://localhost:8080/csvColluns/upload'
