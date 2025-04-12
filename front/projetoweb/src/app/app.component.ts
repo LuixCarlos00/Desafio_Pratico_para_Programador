@@ -3,8 +3,6 @@ import { HttpClientModule, HttpClient, HttpErrorResponse } from '@angular/common
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-import type { Arquivo } from '../Arquivo';
-import { log } from 'node:console';
 
 
 const MAX_FILE_SIZE_MB = 10; // Tamanho máximo permitido em MB
@@ -25,10 +23,10 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.initializeForm();
+    this.inicializarFormulario();
   }
 
-  private initializeForm(): void {
+  private inicializarFormulario(): void {
     this.uploadForm = new FormGroup({
       file: new FormControl(null, [Validators.required]),
       gravarTipo: new FormControl('inteiro', [Validators.required])
@@ -45,7 +43,6 @@ export class AppComponent implements OnInit {
 
     const file = target.files[0];
 
-    // Validações do arquivo
     if (!this.arquivoValido(file)) {
       return;
     }
@@ -84,8 +81,24 @@ export class AppComponent implements OnInit {
     formData.append('file', this.selectedFile, this.selectedFile.name);
     formData.append('gravarTipo', this.uploadForm.value.gravarTipo);
 
-    const url = this.uploadForm.value.gravarTipo === 'inteiro'
-      ? 'http://localhost:8080/arquivos/upload' : 'http://localhost:8080/csvColluns/upload'
+    const tipo = this.uploadForm.value.gravarTipo;
+
+    let url = '';
+
+    switch (tipo) {
+      case 'inteiro':
+        url = 'http://localhost:8080/arquivos/upload';
+        break;
+      case 'colunas':
+        url = 'http://localhost:8080/csvColluns/upload';
+        break;
+      case 'dinamico':
+        url = 'http://localhost:8080/csv_Dinamico/upload';
+        break;
+      default:
+        this.mostraErro('Tipo de gravação inválido.');
+        return;
+    }
 
     this.http.post(url, formData).subscribe({
       next: (res) => this.mensagemSucesso(res),
